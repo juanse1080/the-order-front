@@ -1,10 +1,8 @@
-import { Box, CircularProgress, Grid2, Paper, Typography } from '@mui/material';
-import { useEffect, useState } from 'react';
-import { Content, OrderCard } from '../../components';
-import { useRestaurantContext } from '../../contexts';
-import { Order, OrderStatus, Pagination } from '../../interfaces';
-import useSWR from 'swr';
-import { Loading } from '../../components/atoms';
+import { Grid2 } from "@mui/material";
+import useSWR from "swr";
+import { Content, OrderCard } from "../../components";
+import { useRestaurantContext } from "../../contexts";
+import { Order, Pagination } from "../../interfaces";
 
 export function OrdersView() {
   const { restaurant } = useRestaurantContext();

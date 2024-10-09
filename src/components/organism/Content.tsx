@@ -3,14 +3,13 @@ import {
   Avatar,
   Box,
   CircularProgress,
-  Container,
   Link as MuiLink,
   Toolbar,
-  Typography
-} from '@mui/material';
-import { Link } from 'react-router-dom';
-import { PropsWithChildren, ReactNode } from 'react';
-import { useRestaurantContext } from '../../contexts';
+  Typography,
+} from "@mui/material";
+import { PropsWithChildren, ReactNode } from "react";
+import { Link } from "react-router-dom";
+import { useRestaurantContext } from "../../contexts";
 
 export type ContentProps = {
   loading?: boolean;
@@ -29,7 +28,7 @@ const Content = ({ children, appBar, loading }: Readonly<ContentProps>) => {
             variant="h6"
             component={Link}
             to="/"
-            sx={{ textDecoration: 'none', color: 'white' }}
+            sx={{ textDecoration: "none", color: "white" }}
           >
             The Order - {restaurant?.name}
           </Typography>
@@ -39,14 +38,14 @@ const Content = ({ children, appBar, loading }: Readonly<ContentProps>) => {
             <MuiLink
               to="/orders"
               component={Link}
-              sx={{ textDecoration: 'none', color: 'white' }}
+              sx={{ textDecoration: "none", color: "white" }}
             >
               Ordenes
             </MuiLink>
             <MuiLink
               to="/kitchen"
               component={Link}
-              sx={{ textDecoration: 'none', color: 'white' }}
+              sx={{ textDecoration: "none", color: "white" }}
             >
               Cocina
             </MuiLink>

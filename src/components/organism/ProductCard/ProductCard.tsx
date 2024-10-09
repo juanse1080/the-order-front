@@ -1,5 +1,5 @@
-import { Box, Card, CardContent, CardMedia, Typography } from '@mui/material';
-import { Product } from '../../../interfaces';
+import { Box, Card, CardMedia, Typography } from "@mui/material";
+import { Product } from "../../../interfaces";
 
 export type ProductCardProps = {
   product: Product;
@@ -19,9 +19,9 @@ function ProductCard({ product, children }: ProductCardProps) {
         sx={{
           p: 2,
           gap: 1,
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'space-between'
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-between",
         }}
       >
         <Typography gutterBottom variant="h5" component="div">

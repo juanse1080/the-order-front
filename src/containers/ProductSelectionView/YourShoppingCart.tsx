@@ -1,8 +1,8 @@
 import {
   Add as AddIcon,
   Delete as DeleteIcon,
-  Remove as RemoveIcon
-} from '@mui/icons-material';
+  Remove as RemoveIcon,
+} from "@mui/icons-material";
 import {
   Box,
   Button,
@@ -13,10 +13,10 @@ import {
   IconButton,
   Switch,
   TextField,
-  Typography
-} from '@mui/material';
-import { shoppingCartContext, useRestaurantContext } from '../../contexts';
-import { useState } from 'react';
+  Typography,
+} from "@mui/material";
+import { useState } from "react";
+import { shoppingCartContext, useRestaurantContext } from "../../contexts";
 
 function YourShoppingCart() {
   const [loading, setLoading] = useState(false);
@@ -30,7 +30,7 @@ function YourShoppingCart() {
     customerName,
     setTakeaway,
     reset,
-    setCustomerName
+    setCustomerName,
   } = shoppingCartContext();
 
   const calculateTotal = () => {
@@ -43,22 +43,22 @@ function YourShoppingCart() {
   const handleSubmitOrder = () => {
     setLoading(true);
     fetch(`${import.meta.env.VITE_API_URL}/restaurant/${restaurant.id}/order`, {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
         buyer_name: customerName,
-        package_code: takeaway ? 'TO_GO' : 'EAT_HERE',
+        package_code: takeaway ? "TO_GO" : "EAT_HERE",
         line_items: lineItems.map((item) => ({
           product_id: item.product.id,
           qyt_ordened: item.qyt_ordened,
-          comments: item.comments ?? ''
-        }))
-      })
+          comments: item.comments ?? "",
+        })),
+      }),
     })
       .then((response) => response.json())
-      .then((data) => {
+      .then(() => {
         reset();
         setLoading(false);
       });
@@ -72,7 +72,7 @@ function YourShoppingCart() {
       {lineItems.map((item, index) => (
         <Box
           key={`card-${item.product.id}`}
-          sx={{ display: 'flex', alignItems: 'center', mb: 2 }}
+          sx={{ display: "flex", alignItems: "center", mb: 2 }}
         >
           <CardMedia
             component="img"
@@ -89,7 +89,7 @@ function YourShoppingCart() {
               {item.comments && `Nota: ${item.comments}`}
             </Typography>
           </Box>
-          <Box sx={{ display: 'flex', alignItems: 'center' }}>
+          <Box sx={{ display: "flex", alignItems: "center" }}>
             <IconButton
               onClick={() => updateQuantity(index, item.qyt_ordened - 1)}
             >
